@@ -15,6 +15,6 @@ router.post('/login',
 
 router.get('/info',
     passport.authenticate('jwt', {session: false}),
-    userController.getUserInfo)
+    userController.getUserInfo);
 
 module.exports = router;

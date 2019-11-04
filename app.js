@@ -12,7 +12,12 @@ var userRouter = require('./routes/user');
 
 require('./config/passport')(passport);
 
-mongoose.connect('mongodb://thomas:qwerty1234@ds141208.mlab.com:41208/aurora-assignment');
+mongoose.connect(process.env.MONGO_URI,
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true
+    });
 
 var app = express();
 
@@ -25,9 +30,9 @@ app.use('/city', cityRouter);
 app.use('/user', userRouter);
 
 // error handler
-app.use(function(err, req, res) {
+app.use(function(err, req, res, next) {
     let response = {};
-    let status = err.statusCode || 500;
+    let status = err.status || 500;
     if(status >= 500){
         response.message = "Internal Server Error";
     } else {

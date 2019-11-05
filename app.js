@@ -6,7 +6,7 @@ var passport = require('passport');
 var path = require('path');
 var dotEnvPath = path.resolve('../.env.test');
 
-var indexRouter = require('./routes/api');
+const index = require('./routes/api');
 var cityRouter = require('./routes/city');
 var userRouter = require('./routes/user');
 
@@ -25,9 +25,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/api', indexRouter);
-app.use('/city', cityRouter);
-app.use('/user', userRouter);
+app.use('/api', index);
 
 // error handler
 app.use(function(err, req, res, next) {

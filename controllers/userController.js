@@ -4,9 +4,6 @@ const jwt = require('jsonwebtoken');
 
 exports.login = async (req, res, next) => {
     const user = req.user;
-    if(!user){
-        return res.statusCode(401).json();
-    }
     const token = jwt.sign({email: user.email}, process.env.SECRET_KEY);
     res.json({
         user: commonHelper.sanitizeUserData(user),

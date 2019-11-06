@@ -37,7 +37,6 @@ describe('Test user api', () => {
     describe(`Check IP STACK api with invalid ip (${constants.tests.VALID_IP})`, () => {
         it("should return an array where length >= 1", async () => {
             const info = await userService.getInfoFromIp(constants.tests.INVALID_IP);
-            console.log(info);
             expect(info).to.have.property('ip');
             expect(info).to.have.property('city');
             // done();

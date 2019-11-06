@@ -16,7 +16,7 @@ module.exports = function (passport) {
             let user = await userService.login(email, password).catch(e => {
                 return done(null, false, {message: e.message});
             });
-            return done(null, user._doc);
+            return done(null, user);
         }
     ));
 

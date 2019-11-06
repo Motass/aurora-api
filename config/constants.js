@@ -1,7 +1,8 @@
 module.exports = Object.freeze({
     errors: {
         WRONG_PASSWORD: 'Wrong password',
-        INVALID_QUERY: 'Invalid query'
+        QUERY_REQUIRED: '"query" is required',
+        EMPTY_QUERY: '"query" is not allowed to be empty'
     },
     tests: {
         VALID_CITY: 'Vancouver',

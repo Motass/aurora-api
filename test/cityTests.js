@@ -53,28 +53,28 @@ describe('Test city api', () => {
     });
 
     describe("Get city info from empty query", () => {
-        it("should return a 401 response with an invalid query message", done => {
+        it("should return a 422 response with an invalid query message", done => {
             chai
                 .request(app)
                 .get(`/api/city?query=`)
                 .end((err, res) => {
-                    expect(res).to.have.status(401);
+                    expect(res).to.have.status(422);
                     expect(res.body).to.be.an('object');
-                    expect(res.body.message).to.equals(constants.errors.INVALID_QUERY);
+                    expect(res.body.message).to.equals(constants.errors.EMPTY_QUERY);
                     done();
                 });
         });
     });
 
     describe("Get city info from undefined query", () => {
-        it("should return a 401 response with an invalid query message", done => {
+        it("should return a 422 response with an invalid query message", done => {
             chai
                 .request(app)
                 .get(`/api/city`)
                 .end((err, res) => {
-                    expect(res).to.have.status(401);
+                    expect(res).to.have.status(422);
                     expect(res.body).to.be.an('object');
-                    expect(res.body.message).to.equals(constants.errors.INVALID_QUERY);
+                    expect(res.body.message).to.equals(constants.errors.QUERY_REQUIRED);
                     done();
                 });
         });

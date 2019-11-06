@@ -15,7 +15,7 @@ describe('Test city api', () => {
         it("should return an array where length >= 1", done => {
             chai
                 .request(app)
-                .get(`/city?query=${constants.tests.VALID_CITY}`)
+                .get(`/api/city?query=${constants.tests.VALID_CITY}`)
                 .end((err, res) => {
                     expect(res).to.have.status(200);
                     expect(res.body).to.be.an('array');
@@ -42,7 +42,7 @@ describe('Test city api', () => {
         it("should return an array where length == 0", done => {
             chai
                 .request(app)
-                .get(`/city?query=${constants.tests.INVALID_CITY}`)
+                .get(`/api/city?query=${constants.tests.INVALID_CITY}`)
                 .end((err, res) => {
                     expect(res).to.have.status(200);
                     expect(res.body).to.be.an('array');
@@ -56,7 +56,7 @@ describe('Test city api', () => {
         it("should return a 401 response with an invalid query message", done => {
             chai
                 .request(app)
-                .get(`/city?query=`)
+                .get(`/api/city?query=`)
                 .end((err, res) => {
                     expect(res).to.have.status(401);
                     expect(res.body).to.be.an('object');
@@ -70,7 +70,7 @@ describe('Test city api', () => {
         it("should return a 401 response with an invalid query message", done => {
             chai
                 .request(app)
-                .get(`/city`)
+                .get(`/api/city`)
                 .end((err, res) => {
                     expect(res).to.have.status(401);
                     expect(res.body).to.be.an('object');

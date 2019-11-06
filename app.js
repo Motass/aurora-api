@@ -21,7 +21,7 @@ mongoose.connect(process.env.MONGO_URI,
     });
 
 var app = express();
-
+app.enable('trust proxy');
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());

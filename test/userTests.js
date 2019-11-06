@@ -34,12 +34,13 @@ describe('Test user api', () => {
         // });
     });
 
-    describe(`Check IP STACK api with invalid ip (${constants.tests.VALID_IP})`, () => {
+    describe(`Check IP STACK api with invalid ip (${constants.tests.INVALID_IP})`, () => {
         it("should return an array where length >= 1", async () => {
             const info = await userService.getInfoFromIp(constants.tests.INVALID_IP);
             expect(info).to.have.property('ip');
+            expect(info.ip).to.equals(constants.tests.INVALID_IP);
             expect(info).to.have.property('city');
-            // done();
+            expect(info.city).to.equals(null);
         });
     });
 });

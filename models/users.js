@@ -15,8 +15,8 @@ var User = new Schema({
 		},
 		required: [true, 'Email is required']
 	},
-	firstName: {type: String, minlength: 2, maxlength: 255},
-	lastName: {type: String, minlength: 2, maxlength: 255},
+	firstName: {type: String, minlength: 2, maxlength: 255, required: [true, 'First name is required']},
+	lastName: {type: String, minlength: 2, maxlength: 255, required: [true, 'Last name is required']},
 	password_hash: { type: String, required: [true, 'Password is required']},
 	ipInfo: Object
 });

@@ -36,15 +36,12 @@ const createUser = async (userData) => {
 module.exports.createUser = createUser;
 
 const getUser = async (email) => {
-    return new Promise(((resolve, reject) => {
         try {
-            User.findOne({'email': email}).exec(function (err, user) {
-                resolve(user);
-            });
+            const user = await User.findOne({'email': email});
+            return user;
         } catch (e) {
-            reject(e);
+            throw e;
         }
-    }));
 };
 module.exports.getUser = getUser;
 

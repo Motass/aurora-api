@@ -53,7 +53,7 @@ const updateUser = async (email, firstName, lastName, ip) => {
         if (user.ipInfo && user.ipInfo.ip !== ip) {
             user.ipInfo = await getInfoFromIp(ip);
         }
-        await user.save();
+        await user.updateOne(user);
         return user;
     } catch (e) {
         throw e;

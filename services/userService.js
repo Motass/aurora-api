@@ -19,11 +19,10 @@ const createUser = async (userData) => {
     try {
         let user = new User();
 
-        userData.password_hash = await bcrypt.hash(userData.password, 10);
-        delete userData.password;
-
-        userData.ipInfo = await getInfoFromIp(userData.ip);
-        delete userData.ip;
+        [userData.password_hash, userData.ipInfo] = await Promise.all([
+            bcrypt.hash(userData.password, 10),
+            getInfoFromIp(userData.ip)
+        ]);
 
         Object.assign(user, userData);
 

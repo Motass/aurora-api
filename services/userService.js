@@ -61,7 +61,6 @@ const updateUser = async (email, firstName, lastName, ip) => {
 };
 module.exports.updateUser = updateUser;
 
-
 const getInfoFromIp = async (ip) => {
     try {
         const url = ipStack.getIpStackURL(ip);

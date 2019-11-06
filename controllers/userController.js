@@ -40,9 +40,6 @@ exports.update = async (req, res, next) => {
 exports.getUserInfo = async (req, res, next) => {
     try {
         const user = await userService.getUser(req.user.email);
-        // const ip = "50.92.194.120";
-        // const ip = req.ip || req.connection.remoteAddress;
-        // const info = await cityService.getCityFromIP(ip);
         res.json(commonHelper.sanitizeUserData(user));
     } catch (e) {
         next(e);

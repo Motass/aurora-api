@@ -1,15 +1,9 @@
-var express = require('express');
-var logger = require('morgan');
-var mongoose = require('mongoose');
-var passport = require('passport');
+const express = require('express');
+const mongoose = require('mongoose');
+const passport = require('passport');
 const cors = require('cors');
 
-var path = require('path');
-var dotEnvPath = path.resolve('../.env.test');
-
 const index = require('./routes/api');
-var cityRouter = require('./routes/city');
-var userRouter = require('./routes/user');
 
 require('./config/passport')(passport);
 
@@ -23,7 +17,6 @@ mongoose.connect(process.env.MONGO_URI,
 var app = express();
 app.enable('trust proxy');
 app.use(cors());
-app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

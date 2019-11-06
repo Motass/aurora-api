@@ -23,19 +23,6 @@ describe('Test city api', () => {
                     done();
                 });
         });
-
-        // it("looks for an invalid city", done => {
-        //     chai
-        //         .request(app)
-        //         .post("/add")
-        //         .send({ num1: 5, num2: 5 })
-        //         .end((err, res) => {
-        //             expect(res).to.have.status(200);
-        //             expect(res.body.status).to.equals("success");
-        //             expect(res.body.result).to.equals(10);
-        //             done();
-        //         });
-        // });
     });
 
     describe(`Get city info from invalid query (${constants.tests.INVALID_CITY})`, () => {

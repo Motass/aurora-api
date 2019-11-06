@@ -1,7 +1,7 @@
 const Joi = require('@hapi/joi');
 
 const schemas = {
-    register: Joi.object().keys({
+    register: Joi.object({
         firstName: Joi.string().required(),
         lastName: Joi.string().required(),
         email: Joi.string().email().required(),
@@ -11,7 +11,7 @@ const schemas = {
         email: Joi.string().email().required(),
         password: Joi.string().min(4).required()
     }),
-    update: Joi.object().keys({
+    update: Joi.object({
         firstName: Joi.string().required(),
         lastName: Joi.string().required()
     })

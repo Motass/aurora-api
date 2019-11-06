@@ -2,7 +2,6 @@ const gmaps = require('../config/gmaps');
 
 const findPlaceById = async (id) => {
     try {
-
         const response = await gmaps.googleMapsClient.place({placeid: id})
             .asPromise();
 
@@ -26,5 +25,3 @@ const findPlacesByQuery = async (query) => {
     }
 };
 module.exports.findPlacesByQuery = findPlacesByQuery;
-
-// checkip.amazonaws.com
